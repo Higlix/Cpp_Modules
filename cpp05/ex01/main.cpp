@@ -6,7 +6,7 @@ int main(int /*argc*/, char **/*argv*/)
 	try
 	{
 		Bureaucrat	james("James", 24);
-		Form		bizDeal("Deal", 23, 24);
+		AForm		bizDeal("Deal", 23, 24);
 		
 		james.signForm(bizDeal);
 	} 
