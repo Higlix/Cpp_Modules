@@ -8,7 +8,7 @@ class C : public Base {};
 
 Base	*generate(void)
 {
-	int randomNumber = std::rand() % 31;
+	int randomNumber = std::rand() % 7;
 	
     if (randomNumber % 3 == 0)
         return (new A);
@@ -96,6 +96,5 @@ int main(int /*argc*/, char** /*argv*/)
 	delete v2;
 	delete v3;
 	delete v4;
-
 	return (0);
 }
