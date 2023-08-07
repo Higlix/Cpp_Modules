@@ -16,7 +16,7 @@ int main(int /*argc*/, char **/*argv*/)
 		Bureaucrat sam("Sam", 1);
 
 		std::cout << "Before gradeMinus(): " << sam << std::endl;
-		sam.gradeMinus();
+		sam.gradePlus();
 	} 
 	catch(const std::exception &e)
 	{

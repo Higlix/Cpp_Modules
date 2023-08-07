@@ -6,12 +6,14 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs) {
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs)
+{
     (void)rhs;
     return *this;
 }
 
-void    PresidentialPardonForm::execute(const Bureaucrat& executor) const {
+void    PresidentialPardonForm::execute(const Bureaucrat& executor) const
+{
     if ( executor.getGrade() > this->getGradeExec() )
         throw AForm::GradeTooLowException();
     else {

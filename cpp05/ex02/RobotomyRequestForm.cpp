@@ -6,12 +6,14 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src ) : AFor
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm&    RobotomyRequestForm::operator=( RobotomyRequestForm& rhs ) {
+RobotomyRequestForm&    RobotomyRequestForm::operator=( RobotomyRequestForm& rhs )
+{
     ( void )rhs;
     return *this;
 }
 
-void    RobotomyRequestForm::execute(const Bureaucrat& executor) const {
+void    RobotomyRequestForm::execute(const Bureaucrat& executor) const
+{
     if ( executor.getGrade() > this->getGradeExec() )
         throw AForm::GradeTooLowException();
     else {

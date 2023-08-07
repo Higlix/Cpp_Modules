@@ -6,26 +6,17 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& src )
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm& rhs ) {
+ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm& rhs )
+{
     (void)rhs;
     return *this;
-}
-
-char *filename_get( std::string filename )
-{
-	char *copy = new char[filename.length()];
-	int len = filename.length();
-
-
-	for (int i = 0; i < len; i++)
-		copy[i] = filename[i];
-	return (0);
 }
 
 void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const {
     if ( this->getSign() == false )
         throw AForm::NotSignedException();
-    else if ( executor.getGrade() > this->getGradeExec() ) {
+    else if ( executor.getGrade() > this->getGradeExec() )
+	{
         throw AForm::GradeTooLowException();
     }
 
@@ -33,7 +24,9 @@ void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const {
 	f.append("_shrubbery");
 
     std::ofstream file;
-	char *copy = filename_get(f);
+	const char *copy = f.c_str();
+
+	std::cout << copy << std::endl;
 
 	file.open(copy);
 

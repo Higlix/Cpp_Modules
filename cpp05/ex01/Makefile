@@ -4,7 +4,7 @@ YELLOW = \033[0;93m
 
 
 NAME = crat
-SRC += main.cpp Bureaucrat.cpp AForm.cpp
+SRC += main.cpp Bureaucrat.cpp Form.cpp
 OBJ += $(SRC:%.cpp=%.o)
 
 CC = g++ -std=c++98

@@ -23,18 +23,25 @@ AForm*   Intern::makeForm( std::string name, std::string target ) {
         "presidential pardon",
         "shrubbery creation"
     };
-    AForm*    forms[] = {
-        new RobotomyRequestForm( target ),
-        new PresidentialPardonForm( target ),
-        new ShrubberyCreationForm( target )
-    };
+	
+    int i = 0;
     
-    for ( int i(0); i < 3; i++ ) {
-        if ( name == formNames[i] ) {
-            std::cout << "Intern creates " << name << std::endl;
-            return forms[i];
-        }
-    }
+    for ( i = 0; i < 3; i++ )
+        if ( name == formNames[i] )
+            break ;
+	switch (i)
+	{
+		case 0:
+			std::cout << "Intern creates " << name << std::endl;
+			return (new RobotomyRequestForm(target));
+		case 1:
+			std::cout << "Intern creates " << name << std::endl;
+			return (new PresidentialPardonForm(target));
+		case 2:
+			std::cout << "Intern creates " << name << std::endl;
+			return (new ShrubberyCreationForm(target));
+	}
+
     std::cout << "Intern cannot create " << name << " form" << std::endl;
     return NULL;
 }

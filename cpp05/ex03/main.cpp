@@ -8,11 +8,15 @@
 int main(int /*argc*/, char **/*argv*/)
 {
     {
-        Intern  someRandomIntern;
+        Bureaucrat thatcratdude("Simon", 4);
+		Intern  someRandomIntern;
         AForm*   rrf;
 
         // rrf = someRandomIntern.makeForm("robotomy", "Bender");
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+		thatcratdude.signForm(*rrf);
+		thatcratdude.executeForm(*rrf);
         delete rrf;
     }
 

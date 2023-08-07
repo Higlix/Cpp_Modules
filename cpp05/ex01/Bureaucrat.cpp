@@ -49,16 +49,16 @@ Bureaucrat& Bureaucrat::operator=( const Bureaucrat& ref )
 	return (*this);
 }
 
-void    Bureaucrat::signForm( AForm& AForm )
+void    Bureaucrat::signForm( Form& Form )
 {
     try
 	{
-        AForm.beSigned( *this );
-        std::cout << *this << " signed " << AForm.getName() << std::endl;
+        Form.beSigned( *this );
+        std::cout << *this << " signed " << Form.getName() << std::endl;
     } 
-	catch(AForm::GradeTooLowException &e)
+	catch(Form::GradeTooLowException &e)
 	{
-        std::cout << _name << " coulnd't sign " << AForm.getName() << " because " << e.what() << std::endl;
+        std::cout << _name << " coulnd't sign " << Form.getName() << " because " << e.what() << std::endl;
     }
 }
 

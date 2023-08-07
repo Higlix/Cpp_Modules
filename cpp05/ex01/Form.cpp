@@ -1,18 +1,20 @@
-#include "AForm.hpp"
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : _name("AForm_DEFAULT"), _requiredGradeSign(1), _requiredGradeExec(1)
+Form::Form() : _name("Form_DEFAULT"), _requiredGradeSign(1), _requiredGradeExec(1)
 {
 	this->_sign = false;
 }
 
-AForm::AForm( std::string name, int rgs, int rge ) : 
-_name(name), _requiredGradeSign(rgs), _requiredGradeExec(rge)
+Form::Form( std::string name, int rgs, int rge ) : 
+_name(name),
+_requiredGradeSign(rgs),
+_requiredGradeExec(rge)
 {
 	this->_sign = false;
 }
 
-AForm::AForm( const AForm& rhs ) :
+Form::Form( const Form& rhs ) :
 _name(rhs._name), 
 _requiredGradeSign(rhs._requiredGradeSign),
 _requiredGradeExec(rhs._requiredGradeExec)
@@ -20,7 +22,7 @@ _requiredGradeExec(rhs._requiredGradeExec)
 	this->_sign = false;
 }
 
-AForm& AForm::operator=( const AForm& rhs )
+Form& Form::operator=( const Form& rhs )
 {
 	if (this != &rhs)
 	{
@@ -29,40 +31,40 @@ AForm& AForm::operator=( const AForm& rhs )
 	return (*this);
 }
 
-AForm::~AForm() {/**/}
+Form::~Form() {/**/}
 
 
-std::string	AForm::getName() const
+std::string	Form::getName() const
 {
 	return (this->_name);
 }
 
-bool		AForm::getSign() const
+bool		Form::getSign() const
 {
 	return (this->_sign);
 }
 
-int			AForm::getGradeSign() const
+int			Form::getGradeSign() const
 {
 	return (this->_requiredGradeSign);
 }
 
-int			AForm::getGradeExec() const
+int			Form::getGradeExec() const
 {
 	return (this->_requiredGradeExec);
 }
 
-void		AForm::beSigned( const Bureaucrat& rhs )
+void		Form::beSigned( const Bureaucrat& rhs )
 {
 	if (rhs.getGrade() <= this->_requiredGradeSign)
 		this->_sign = true;
 	else
-		throw(AForm::GradeTooLowException());
+		throw(Form::GradeTooLowException());
 }
-std::ostream&   operator<<( std::ostream& o, const AForm& rhs )
+std::ostream&   operator<<( std::ostream& o, const Form& rhs )
 {
-    o << "------------- AForm Info -------------" << std::endl;
-    o << "AForm name: " << rhs.getName() << std::endl
+    o << "------------- Form Info -------------" << std::endl;
+    o << "Form name: " << rhs.getName() << std::endl
       << "Grade to sign: " << rhs.getGradeSign() << std::endl
       << "Grade to execute: " << rhs.getGradeExec();
     return (o);
